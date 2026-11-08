@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    
+    <!-- Deployment & Assembly Metadata -->
+    <AssemblyName>ModularRpgApp</AssemblyName>
+    <Product>Modular RPG Platform and Character Catalog</Product>
+    <Description>Integrated RPG Combat Engine and Character Catalog with Native WPF GUI and CLI Console</Description>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Authors>KN-35 Student</Authors>
+    <Company>Academic Software Labs</Company>
+    <Copyright>Copyright (c) 2026. All rights reserved.</Copyright>
+
+    <!-- Build Optimization Settings -->
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+    
+    <!-- Release Packaging Defaults -->
+    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+    <PublishReadyToRun Condition="'$(Configuration)' == 'Release'">true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract Condition="'$(Configuration)' == 'Release'">true</IncludeNativeLibrariesForSelfExtract>
+
+    <DefaultItemExcludes>$(DefaultItemExcludes);Tests\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <None Remove="Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="deploy\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

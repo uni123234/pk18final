@@ -1,0 +1,36 @@
+{
+  "package": "ModularRpgPlatform-Distribution",
+  "version": "1.0.0",
+  "targetPlatform": "win-x64",
+  "framework": "net8.0-windows",
+  "components": [
+    {
+      "name": "ModularRpgApp.exe",
+      "type": "Executable",
+      "description": "Primary desktop application binary"
+    },
+    {
+      "name": "Core",
+      "type": "Subsystem",
+      "description": "Domain entities, combat formulas, turn-based engine"
+    },
+    {
+      "name": "GUI",
+      "type": "Subsystem",
+      "description": "WPF XAML views, ViewModels, composite character cards"
+    },
+    {
+      "name": "CLI",
+      "type": "Subsystem",
+      "description": "Command-line facade, command strategies, console renderer"
+    },
+    {
+      "name": "Infra",
+      "type": "Subsystem",
+      "description": "Disk asset cache, slot save manager, Genshin API client"
+    }
+  ],
+  "installScript": "install.bat",
+  "guiLauncher": "run.bat",
+  "cliLauncher": "run_cli.bat"
+}
